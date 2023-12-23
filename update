@@ -1,0 +1,5 @@
+#!/bin/bash -x
+echo "updating configuration"
+
+cp ../4619-drexel/docker-compose.yml ../4619-drexel/docker-compose.yml.bak
+cp docker-compose.yml ../4619-drexel
