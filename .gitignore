@@ -1,0 +1,12 @@
+node_modules
+.npm
+logs
+*.log
+*.log*
+
+*.db
+*.db-shm
+*.db-wal
+backups
+.storage
+

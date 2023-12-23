@@ -1,0 +1,58 @@
+version: '3'
+services:
+  homeassistant:
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/home-assistant:stable"
+    network_mode: "host"
+    volumes:
+      - /srv/4619-drexel/home-assistant/config:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /run/dbus:/run/dbus:ro
+    restart: unless-stopped
+    privileged: true
+  mosquitto:
+    container_name: mosquitto
+    image: eclipse-mosquitto:2
+    network_mode: "host"
+    restart: unless-stopped
+    volumes:
+      - /srv/4619-drexel/mosquitto/config:/mosquitto/config
+      - /srv/4619-drexel/mosquitto/data:/mosquitto/data
+      - /srv/4619-drexel/mosquitto/log:/mosquitto/log
+    environment:
+      TZ: "America/Chicago"
+    healthcheck:
+      test: ["CMD", "mosquitto_sub", "-u", "test", "-P", "test_user_password", "-h", "localhost", "-t", "$$SYS/broker/uptime", "-i", "docker_health_check", "-C", "1"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+  node-red:
+    image: nodered/node-red:latest
+    user: 'root:root'
+    network_mode: "host"
+    container_name: node-red
+    environment:
+      - TZ=America/Chicago
+    volumes:
+     - /srv/4619-drexel/node-red/data:/data
+    restart: always
+    
+  zwavejs2mqtt:
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:latest
+    network_mode: "host"
+    restart: always
+    tty: true
+    stop_signal: SIGINT
+    environment:
+      - SESSION_SECRET=9A34447AFC8355BC28B2B6607DC17F87
+      - ZWAVEJS_EXTERNAL_CONFIG=/srv/4619-drexel/home-assistant/config/zwavejs/.config-db
+      # Uncomment if you want log times and dates to match your timezone instead of UTC
+      # Available at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+      - TZ=America/Chicago
+    #devices:
+      # Do not use /dev/ttyUSBX serial devices, as those mappings can change over time.
+      # Instead, use the /dev/serial/by-id/X serial device for your Z-Wave stick.
+      # - /dev/ttyUSB0
+    volumes:
+      - /srv/4619-drexel/zwavejs/:/usr/src/app/store
