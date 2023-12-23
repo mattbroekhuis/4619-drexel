@@ -102,7 +102,7 @@ services:
       # - /var/run/avahi-daemon/socket:/var/run/avahi-daemon/socket
 
       # Default volume for the Scrypted database. Typically should not be changed.
-      - ~/.scrypted/volume:/server/volume
+      - /srv/4619-drexel/.scrypted/volume:/server/volume
     devices: [
       # uncomment the common systems devices to pass
       # them through to docker.
