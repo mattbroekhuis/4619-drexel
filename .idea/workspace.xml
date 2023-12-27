@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4f354e8d-c4b1-4311-9501-63be9601ecb5" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/update" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home-assistant/config/configuration.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/home-assistant/config/configuration.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +31,31 @@
       <option name="project" value="LOCAL" />
       <updated>1703369953484</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add script">
+      <option name="closed" value="true" />
+      <created>1703370172685</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703370172685</updated>
+    </task>
+    <task id="LOCAL-00003" summary="more">
+      <option name="closed" value="true" />
+      <created>1703370248416</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1703370248416</updated>
+    </task>
+    <task id="LOCAL-00004" summary="more">
+      <option name="closed" value="true" />
+      <created>1703370354141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1703370354141</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -46,6 +71,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add scrypted" />
-    <option name="LAST_COMMIT_MESSAGE" value="add scrypted" />
+    <MESSAGE value="add script" />
+    <MESSAGE value="more" />
+    <option name="LAST_COMMIT_MESSAGE" value="more" />
   </component>
 </project>
