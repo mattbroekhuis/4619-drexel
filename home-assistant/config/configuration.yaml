@@ -1,4 +1,3 @@
-
 # Loads default set of integrations. Do not remove.
 default_config:
 
@@ -11,3 +10,10 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 
 wake_on_lan:
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 172.17.0.1
+    - 127.0.0.1
+    - ::1
